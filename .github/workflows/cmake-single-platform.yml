@@ -35,6 +35,8 @@ jobs:
       shell: bash
       run: |
        . ./venv/Scripts/activate
+       echo $PWD
+       ls -l
        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build

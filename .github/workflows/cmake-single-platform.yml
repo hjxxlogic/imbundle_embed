@@ -37,13 +37,15 @@ jobs:
        . ./venv/Scripts/activate
        echo $PWD
        ls -l
-       cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+       echo ${{github.workspace}}
+       echo ${{env.BUILD_TYPE}}
+       cmake -B build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
       shell: bash
       run: |
        . ./venv/Scripts/activate
-       cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+       cmake --build build --config ${{env.BUILD_TYPE}}
 
    
 
